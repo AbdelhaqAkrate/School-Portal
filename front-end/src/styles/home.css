@@ -1,0 +1,143 @@
+.HomeContent{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:#f6f6f6 ;
+}
+.custom-shape-divider-top-1654033706 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+.header .title{
+    position: relative;
+    border: #3AAFA9 solid 1px;
+    padding: 30px;
+    width: 90%;
+    top: 55px;
+}
+
+
+.custom-shape-divider-top-1654033706 svg {
+    position: relative;
+    display: block;
+    width: calc(139% + 1.3px);
+    height: 286px;
+}
+
+.custom-shape-divider-top-1654033706 .shape-fill {
+    fill: #6541FA;
+}
+
+.header  {
+position: relative;
+background-color: #6541FA;
+display: flex;
+justify-content: center;
+}
+
+
+
+
+
+
+.CoursesHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin-top: 100px;
+}
+.holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-width: 1200px; */
+    flex-wrap: wrap; 
+    padding: 40px 0;
+}
+.holder .cardCours{
+    position: relative;
+    width: 320px;
+    height: 400px;
+    background-color: #1a064e;;
+    /* box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+                inset -5px -5px -5px rgba(255, 255, 255, 0.05),
+                 5px 5px 5px rgba(0, 0, 0, 0.05),
+                -5px -5px -5px rgba(255, 255, 255, 0.05)  !important ; */
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    border-radius: 15px;
+    margin: 30px;
+}
+.holder .cardCours .cardBox{
+position: absolute;
+top: 20px;
+left: 20px;
+right: 20px;
+bottom: 20px;
+background:#fff;
+box-shadow: rgb(88 255 186 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+transform: 0.5s;
+transition: all ease 0.5s;
+}
+.holder .cardCours:hover .cardBox{
+transform: translateY(-40px);
+box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 40px;
+background-image: linear-gradient(97deg, #6610f2, #604bb1, #6d59bd, #6540fab2);
+color: white;
+}
+.holder .cardCours .cardBox .content{
+    padding: 20px;
+    text-align: center;
+}
+.holder .cardCours .cardBox .content a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #6610f2;;
+    border-radius: 20px;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: #3AAFA9 0px 10px 20px;
+    cursor: pointer;
+}
+.holder .cardCours .cardBox:hover .content a
+{
+    background-color:#fff; ;
+    color: black;
+}
+.author{
+    padding: 5px;
+    gap: 2px;
+}
+.author .username{
+    /* border: 1px solid rebeccapurple; */
+    padding: 7px 10px; 
+    font-weight:700;
+    font-family: 'Poppins', serif;
+}
+.subject span{
+    font-weight:700;
+    font-family: 'Poppins', serif;
+}
+@media (max-width:580px) {
+    .custom-shape-divider-top-1654033706{
+        display: none;
+    }
+    .header{
+        background-color: white;
+    }
+    .header .title{
+        top:20px;
+        border:none;
+    }
+}

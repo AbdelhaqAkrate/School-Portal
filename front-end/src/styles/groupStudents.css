@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+
+
+       studentsList{
+        background-color:#f6f6f6;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+       }
+
+       .GroupStudents{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    
+       }
+        .GroupStudents .holder{
+        gap:60px;
+        }
+
+        .cardStudent{
+            
+             /* margin: 30px; */
+          width: 345px;
+          padding:15px;
+          background: rgb(128, 122, 122);
+          border:none;
+          cursor: pointer;
+          transition: all 0.5s;
+        }
+
+        .round-image{
+          width: 100px !important;
+          height: 100px !important;
+          border: 2px solid red;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+        }
+        .cardStudent .rounded-circle{
+            width: 100%;
+            height: 100%;
+        }
+        .content{
+
+          font-size: 13px;
+        }
+
+        .follow{
+          border-radius: 25px;
+          padding-right: 19px;
+          padding-left: 19px;
+          height: 42px;
+          font-size: 13px;
+          width: 130px;
+          background-color: #3827b1
+        }
+
+        .follow:hover{
+          
+          background-color:#1a0a8c;
+        }
+
+        .card:hover{
+          box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+                  }
