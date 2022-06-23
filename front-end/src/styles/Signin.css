@@ -45,6 +45,15 @@
     position: relative;
     overflow: hidden
 }
+* .containe .card .left-sideAdmin {
+    width: 50%;
+    background:url('../imgs/d458fd1d425fee348d73c70b98d50c34.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden
+}
 .containe .card .right-side {
     width: 50%;
     background-color: #fff;
@@ -159,7 +168,7 @@ input[type="password"] {
 }
 
 .login_btn button:hover {
-    background-color: #f8801f
+    background-color: #0419d6;
 }
 
 
@@ -193,4 +202,8 @@ input[type="password"] {
     .containe .card .left-side {
         display: none
     }
+}
+.error{
+    padding: 6px 9px;
+    color: red;
 }

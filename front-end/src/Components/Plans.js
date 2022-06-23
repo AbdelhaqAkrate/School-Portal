@@ -7,31 +7,42 @@ const Plan = () => {
     return ( 
         <div className="planContent">
            <Navigation /> 
-            <div class="Plancontainer">
-	<div class="row">
-		<div class="col-lg-3 col-sm-6">
+            <div className="Plancontainer">
+                <div className="schduleList">
+                    <div className="planheader">
+                    <h1>Time Schedule</h1>
+                </div>
+                <ul className="timeBlock">
+                    <li className="timeArea">
+                        
+                                <span className="time">9 : 00 - 5 : 00</span>
+                                <span className="language">arabe</span>
+                        
+                    </li>
+                     <li className="timeArea">
+                                <span className="time">9 : 00 - 5 : 00</span>
+                                <span className="language">arabe</span>
+                      
+                    </li>
+                        <li className="timeArea">
+                                <span className="time">9 : 00 - 5 : 00</span>
+                                <span className="language">arabe</span>
+                      
+                    </li>
+                        <li className="timeArea">
+                                <span className="time">9 : 00 - 5 : 00</span>
+                                <span className="language">arabe</span>
+                      
+                    </li>
+                        <li className="timeArea">
+                                <span className="time">9 : 00 - 5 : 00</span>
+                                <span className="language">arabe</span>
+                      
+                    </li>
+                </ul>
+                </div>
 
-            <div class="card hovercard">
-                <div class="cardheader">
-
-                </div>
-                <div class="avatar">
-                    <img alt="" src={logo} />
-                </div>
-                <div class="info">
-                    <div class="userPrf">
-                        <a target="_blank" href="https://scripteden.com/">name</a>
-                    </div>
-                    <div class="desc">Group</div>
-                    <div class="desc">info personel</div>
-                    <div class="desc">date</div>
-                </div>
             </div>
-
-        </div>
-
-	</div>
-</div>
   
            <Footer />
         </div>

@@ -23,7 +23,8 @@ class AdministrateurController
           $Lname = $_POST["lname"];
           $phone = $_POST["phone"];
           $image=$_FILES['image']['name'];
-          $dest="images/" .($image);
+          $adresse = $_POST["adresse"];
+          $dest='C:/xampp/htdocs/Portal/front-end/src/uploads/' .basename($image);
           $email = $_POST["email"];
           $subjectId = $_POST["subject"];
           $gender = $_POST["gender"];
@@ -52,29 +53,56 @@ class AdministrateurController
           $Lname = $_POST["lname"];
           $birth = $_POST["birth"];
           $phone = $_POST["phone"];
+          $adresse = $_POST["adresse"];
           $image=$_FILES['image']['name'];
-          $dest="images/" .($image);
+          $class = $_POST['class'];
+          $dest='C:/xampp/htdocs/Portal/front-end/src/uploads/' .basename($image);
           $email = $_POST["email"];
           $gender = $_POST["gender"];
-            if(move_uploaded_file($_FILES['image']['tmp_name'], $dest))
+
+          //chech if student exist
+
+          $isExist =$admin->avoidDuplicate($Lname,$Fname);
+          
+          if($isExist["COUNT(studentId)"] === 0)
+          {
+             if(move_uploaded_file($_FILES['image']['tmp_name'], $dest))
               {
                 
-                if($admin->addStudent($Fname,$Lname,$birth,$phone,$image,$adresse,$email,$gender))
+                if($admin->addStudent($Fname,$Lname,$birth,$phone,$image,$adresse,$email,$gender,$class))
                 {
-                http_response_code(200);
-                echo  json_encode(array("message" => "Student saved successfully !!"));
+                // http_response_code(200);
+                echo  json_encode(array("message" => "Student Saved Successfully !!"));
                 }
                 else 
                 {
-                http_response_code(400);
-                echo json_encode(array("message" => "error encoutred"));
+                // http_response_code(400);
+                echo json_encode(array("message" => "Error Encoutred"));
                 }
               }
+          }
+          else{
+            // http_response_code(400);
+            echo json_encode(array("message" => "Student Is Already Exist !!!!!"));;
+          }
+           
     }
 
+    //add by type of person
 
+    public function addNew()
+    {
+      $type = $_POST["type"];
+      if($type == "Student")
+      {
+        $this->addStudent();
+      }
+      else if($type == "Teacher"){
+        $this->addEnseignant();
+      }
+    }
 
-    //login 
+    //login function for admin
 
              public function login()
             {
@@ -88,6 +116,7 @@ class AdministrateurController
                 {
                    $adminId = $j["adminId"];
                    $password = $j["password"];
+                   $Lname = $j["Lname"];
                   if($json !=0 && password_verify($pass->password, $password))
                    { 
                       $payload=[
@@ -105,6 +134,7 @@ class AdministrateurController
                           'adminToken'=>$jwt,
                           'message' => 'Login Successfully',
                           'expire' =>$payload['exp'],
+                          'Lname' =>$Lname,
                           'adminId' =>$adminId,
                     ]);
                   }
@@ -115,5 +145,21 @@ class AdministrateurController
                     ]);
                   }
                 }
+            }
+            public function createStudentAccount()
+            {
+              $admin = new Administrateur();
+              $email = $_POST["email"];
+              $pass =$_POST["password"];
+              $role = $_POST["role"];
+              $student = $_POST["student"];
+              $password=password_hash($pass, PASSWORD_DEFAULT);
+              if($admin->createAccountStudent($email,$password,$role,$student))
+              {
+                echo  json_encode(array("message" => "Account Created Successfully !!"));
+              }
+              else{
+                echo  json_encode(array("message" => "Something went wrong !!"));
+              }
             }
 }

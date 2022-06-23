@@ -32,14 +32,27 @@ class Administrateur extends DbConnect
             return true;
             return false;
         }
+
+        //function to check if student already exist or not
+
+    public function avoidDuplicate($lname,$fname)
+    {
+        $query = $this->connect()->prepare("SELECT COUNT(studentId) FROM `student` WHERE `Lname` = '$lname' AND `Fname`='$fname';");
+        if($query->execute())
+    {    return $query->fetch(PDO::FETCH_ASSOC);}
+       else {return 0;}
+    }
+
         //function for creating a new student
 
-    public function addStudent($Fname,$Lname,$birth,$phone,$image,$adresse,$email,$gender)
+    public function addStudent($Fname,$Lname,$birth,$phone,$image,$adresse,$email,$gender,$class)
         {
-            $query=$this->connect()->prepare("INSERT INTO `student`(`Fname`, `Lname`, `birth`, `Phone`, `Image`, `adresse`, `email`, `gender`) VALUES ('$Fname','$Lname','$birth','$phone','$image','$adresse','$email','$gender')");
-                if($query->execute())
-                return true;
-                return false;
+            
+                $query=$this->connect()->prepare("INSERT INTO `student`(`Fname`, `Lname`, `birth`, `Phone`, `Image`, `adresse`, `email`, `gender`,`class`) VALUES ('$Fname','$Lname','$birth','$phone','$image','$adresse','$email','$gender','$class')");
+                    $query->execute();
+                        return true;
+                          return false;
+         
         }  
         
         //function for updating teacher details
@@ -98,7 +111,14 @@ class Administrateur extends DbConnect
             }
         }
 
-
+    public function createAccountStudent($email,$password,$role,$student)
+    {
+            $query=$this->connect()->prepare("INSERT INTO `account`(`email`, `password`, `role`, `studentId`) VALUES ('$email','$password','$role','$student')");
+                    $query->execute();
+                        return true;
+                          return false;
+            
+    }
 
 
 }

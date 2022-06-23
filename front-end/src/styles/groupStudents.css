@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
 
 
-       studentsList{
+       .studentsList{
         background-color:#f6f6f6;
         font-family: "Poppins", sans-serif;
         font-weight: 300;
@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
+    margin-top: 150px;
     
        }
         .GroupStudents .holder{
@@ -44,7 +45,7 @@
             height: 100%;
         }
         .content{
-
+         font-weight: 800;
           font-size: 13px;
         }
 
@@ -66,3 +67,72 @@
         .card:hover{
           box-shadow: 0 0 40px rgba(51, 51, 51, .1);
                   }
+
+          /* When width less then 680px */
+@media (max-width:920px) {
+
+    .custom-shape-divider-top-1654033706 svg {
+
+    width: calc(145% + 1.3px);
+    height: 206px;
+}
+    .header{
+        background-color: #f6f6f6;
+        
+    }
+    .header .title{
+    top: 39px;
+    border: block;
+    left: 25px;
+    }
+    .header .title h1{
+        font-size: 40px;
+     
+    }
+  
+    .GroupStudents{
+   margin-top: 65px;;
+    }
+}
+
+        /* when width less then 580px */
+
+@media (max-width:580px) {
+     .custom-shape-divider-top-1654033706 svg {
+
+    width: calc(145% + 1.3px);
+    height: 165px;
+}
+    .header{
+        background-color: #f6f6f6;
+    }
+    .header .title{
+        top:20px;
+        border:none;
+        left: -15px;
+    }
+    .header .title h1{
+        font-size: 30px;
+        /* -webkit-text-stroke : 1px #6541FA; */
+    }
+    .GroupStudents{
+        margin-top: 30px;
+    }
+}
+
+    @media (max-width : 290px)
+    {
+         .custom-shape-divider-top-1654033706 svg {
+
+    width: calc(153% + 1.3px);
+    height: 125px;
+}
+ .header .title{
+        top:9px;
+        border:block;
+        left: -35px;
+    }
+        .header .title h1{
+        font-size: 25px;
+    }
+    }

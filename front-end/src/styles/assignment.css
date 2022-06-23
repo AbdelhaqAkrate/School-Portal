@@ -1,103 +1,147 @@
 .assignementContent{
     background-color: #f6f6f6;
 }
+.AssignmentHolder
+{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    margin-top: 100px;
+}
 .main{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    row-gap: 30px;
-    height: 100vh;
+ display: flex;
+    justify-content: center;
     align-items: center;
+    /* min-width: 1200px; */
+    flex-wrap: wrap; 
+    padding: 40px 0;
+    gap: 30px;
+}
+.main .cardTask{
+    position: relative;
+}
+.main .cardTask .shape
+{
+    width: 300px;
+    height: 200px;
+    transition: 0.5s;
+}
+.main .cardTask .shape.beforeShape{
+    position: relative;
+    background: #6541fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+.main .cardTask:hover .shape.beforeShape{
+    transform: translateY(0px);
+     background-color:#1a064e;
+     color: #f6f6f6;
+}
+.main .cardTask .shape.afterShape
+{
+   
+    position: relative;
     background-color: #f6f6f6;
+    display: flex;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
     padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    transform: translateY(-100px);
 }
-.two{
-    width: 270px;
-    background-color: #fff;
-    justify-content: center;
-    align-items: center;
+.main .cardTask:hover .shape.afterShape{
+
+    transform: translateY(0px);
+}
+.main .cardTask .shape.beforeShape .taskContent{
+    transition: 0.5s;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);    
 }
-.star{
-    font-size: 20px !important;
-    color: #b1b4b7;
+.main .cardTask:hover .shape.beforeShape .taskContent{
+    opacity: 1;
 }
-.dot{
-    font-size: 20px !important;
-    color: #b1b4b7;
+.main .cardTask .shape.beforeShape .taskContent img{
+    width : 80px;
+    height: 80px;
+    margin: 0 50px 0px;
 }
-.round{
-    border-radius: 50%;
-    background-color: #eee;
-    width: 33px;
-    height: 33px;
-    margin-bottom: -10px;
-    align-items: center;
-    justify-content: center;
-}
-.name{
-    font-size: 22px;
-    color: #464e56;
-    font-weight: 600;
-    text-align: left;
-}
-.quote2{
-     font-size: 12px;
-     font-weight: 500;
-     color: #868e94;
-     text-align: left;
-}
-.img1{
-    position: relative;
-    left: 20px;
-    z-index: 28;
-    border: 0.5px solid #6ebde4;
-    border-radius: 50%;
-    background-color: #bcd8e6;
-}
-.img2{
-    position: relative;
-    left: 10px;
-    z-index: 29;
-    border: 0.5px solid #6ebde4;
-    border-radius: 50%;
-    background-color: #bcd8e6;
-}
-.img3{
-    z-index: 30;  
-    border: 0.5px solid #6ebde4;
-    border-radius: 50%; 
-    background-color: #bcd8e6;
-}
-.task{
-     color: #727475;
-}
-.date{
-     color: #727475;
-}
-.imgfix{
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+.main .cardTask .shape.beforeShape .taskContent h4{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #f6f6f6;
     text-align: center;
-    position: relative;
-    top: 2px;
+    font-size: 16px;
+
 }
-.upload{
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
+.main .cardTask .shape.beforeShape .taskContent h3{
+    margin: 10px 0 0;
+    padding: 0;
+    color: #f6f6f6;
+    text-align: center;
+    font-size: 18px;
+
 }
-.upload .block{
-    width: 50% !important;
+
+
+.main .cardTask .shape.afterShape P{
+    margin: 0;
+    padding: 0;
+    width: 99%;
+    height: 80px;
+       display: block;
+       position:static;
+       word-break: break-word;
+    /* width: 100px; */
+  /* overflow: hidden;
+  white-space: nowrap; */
+  text-overflow: ellipsis;
+   
+}
+.main .cardTask .shape.afterShape a{
+    margin: 15px 15px 0;
+    float: right;
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
     padding: 5px;
-    display: flex;
-    justify-content: flex-end;
+    border: 1px solid #333;
 }
-.download:hover{
-    background-color: #6ebde4;
-    color: black;
+.main .cardTask .shape.afterShape a:hover{
+    background-color: #333;
+    color: #f6f6f6;
+}
+.main .cardTask .shape.afterShape .taskContent .break{
+  height: 90px;
+  overflow: auto;
+  text-align: center;
+}
+
+@media (max-width : 540px) {
+    .main{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}
+
+@media (max-width : 290px) {
+     .custom-shape-divider-top-1654033706 svg {
+
+    width: calc(153% + 1.3px);
+    height: 125px;
+}
+ .header .title{
+        top:9px;
+        border:block;
+        right: 35px;
+    }
+.header .title h1{
+        font-size: 26px;
+       right:45px;
+    }
+    
 }

@@ -13,14 +13,17 @@ button.btn-danger{
     width: 120px;
 }
 .logo{
-    width: 100px;
+    width: 40px;
     height: auto;
 }
 .nav{
 
     background-color:#6541fa; 
     z-index: 100000000000;
-    border-bottom: #1e124e solid 1px;
+    border-bottom: #f8f9fa solid 1px;
+}
+.nav .container{
+    padding: 15px;
 }
 .nav-link:hover{
     border-bottom: 1px solid rgb(20, 220, 187);
@@ -111,7 +114,13 @@ button.btn-danger{
 @media (max-width : 420px)
 {
     .dropdown-menu[data-bs-popper] {
-       transform: translate(65%, 30%);
+       transform: translate(50%, 30%);
        text-align: center;
+}}
+@media (max-width : 280px)
+{
+   .dropdown-menu[data-bs-popper] {
+       transform: translate(30%, 30%);
+       text-align: center; 
 }
 }

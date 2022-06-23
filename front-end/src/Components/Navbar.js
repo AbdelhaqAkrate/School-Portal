@@ -2,33 +2,30 @@ import { Navbar,Nav,Container,Button, Dropdown} from "react-bootstrap";
 import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/navbar.css";
-import logo from "../imgs/vergil.jpg";
+import { useEffect , useState } from "react";
+import logo from "../imgs/logo_kankuro.png";
+import axios from "axios";
 const Navigation = () => {
+  const [logInfo,setLogInfo] = useState([])
   const logOut = () => {
-		localStorage.removeItem("token");
-		localStorage.removeItem("username");
+		localStorage.removeItem("studentToken");
+		localStorage.removeItem("expire");
+    localStorage.removeItem("studentId");
+    localStorage.removeItem("pdp");
 	}
   
-  var sign = '';
-  // if(!localStorage.getItem('token'))
-  // {
-  //   sign = 
-  //     <>
-  //         <Nav.Link as={Link} to={"/Signin"} >
-  //       <Button variant="danger">
-  //           Signin 
-  //       </Button>
-  //       </Nav.Link>
-        
-  //     </>
-    
-  // }
-  // else{
-    sign=<>
-   
-    </>
-  // }
 
+  useEffect (() => {
+        axios.get(`http://localhost/Portal/back-end/Student/studentInfo/${localStorage["studentId"]}`)
+        .then(result=>
+            {
+            // console.log(result.data)
+            setLogInfo(result.data) 
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+    },[])
 
 
 
@@ -37,32 +34,34 @@ const Navigation = () => {
   <Container>
     <Navbar.Brand>
       <Link to="/">
-      <img className="logo rounded-circle" alt="" src={logo} />
+      <img className="logo" alt="siteweb logo" src={logo} />
+     
       </Link>
       </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mx-auto parent">
-        <Nav.Link as={Link} to={"/"}>Courses</Nav.Link>
+        <Nav.Link as={Link} to={"/Courses"}>Courses</Nav.Link>
         <Nav.Link as={Link} to={"/Assignment"}>Assignments</Nav.Link>
         <Nav.Link as={Link} to={"/Plans"}>Plans</Nav.Link>
         <Nav.Link as={Link} to={"/Signin"}>Tasks</Nav.Link>
       </Nav>
     
-       <Dropdown class="nav-item dropdown no-arrow">
+       <Dropdown className="nav-item dropdown no-arrow">
               <Dropdown.Toggle to="/" classname="nav-link dropdown-toggle"  id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Abdelhaq</span>
-                <img className="img-profile rounded-circle" src={logo} />
+                <span className="mr-2 d-none d-lg-inline text-gray-600 small">{logInfo.Lname}</span>
+  
+                <img className="img-profile rounded-circle" alt="user pdp" src={require(`../uploads/${localStorage.getItem("pdp")}`)} />
               </Dropdown.Toggle>
-    
-              <Dropdown.Menu class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+              <Dropdown.Menu className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <Dropdown.Item as={Link} to={"/profil"} className="dropdown-item">
-                  <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  <i className="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </Dropdown.Item>
-                <Dropdown.Item class="dropdown-divider"></Dropdown.Item>
-                <Dropdown.Item as={Link} to={"/Signin"} className="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                 <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                <Dropdown.Item className="dropdown-divider"></Dropdown.Item>
+                <Dropdown.Item onClick={logOut} className="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                 <i className="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </Dropdown.Item>
              </Dropdown.Menu>

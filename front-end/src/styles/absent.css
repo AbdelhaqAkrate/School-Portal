@@ -1,0 +1,158 @@
+::-webkit-scrollbar {display:none;}
+
+
+.listContent{
+    overflow: hidden;
+}
+.container{
+    text-align: center;
+    padding: 25px;
+}
+.both{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.counter{
+    height: calc(2.1em + 0.5rem + 12px);
+    font-size: 15px !important;
+  
+}
+ .title{
+    position: relative;
+    padding: 30px;
+    width: 90%;
+    top: 25px;
+    left: 65px;
+}
+ .title h1{
+     font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 52px;
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(18, 40, 167);
+    text-transform: uppercase;
+}
+.title h1::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 10;
+    left: 10;
+    color: #3e64ff;
+    width: 0%;
+    height: 100%;
+    -webkit-text-stroke :0.5px #6541FA;
+    overflow: hidden;
+    animation: animate 3s linear infinite;
+}
+@keyframes animate {
+    0%,10%,100%
+    {
+        width: 0;
+    }
+    70%,90%
+    {
+        width: 100%;
+    }
+}
+
+.h2{
+    color: #444;
+    font-family: 'PT Sans', sans-serif;
+}
+thead{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #666;
+}
+img{
+    width: 50px;
+    height: auto;
+}
+.name{
+    display: inline-block;
+}
+.bg-blue{
+    background-color: #EBF5FB;
+    border-radius: 8px;
+}
+.fa-check,.fa-minus{
+    color: blue;
+}
+.bg-blue:hover{
+    background-color: #3e64ff;
+    color: #eee;
+    cursor: pointer;
+}
+.bg-blue:hover .fa-check,
+.bg-blue:hover .fa-minus{
+    background-color: #3e64ff;
+    color: #eee;
+}
+
+.table thead th,.table td{
+    border: none;
+}
+
+.table tbody td:first-child{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.table tbody td:last-child{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#spacing-row{
+    height: 10px;
+}
+@media(max-width:575px){
+    .container{
+        padding: 20px 10px;
+    }
+}
+
+
+
+
+
+            /* When width less then 680px */
+@media (max-width:920px) {
+
+  .title{
+    top: 39px;
+    border: block;
+    left: 20px;
+    }
+ .title h1{
+        font-size: 40px;
+     
+    }
+  
+}
+
+        /* when width less then 580px */
+
+@media (max-width:580px) {
+    .title{
+        top:20px;
+        border:none;
+        left: -15px;
+    }
+    .title h1{
+        font-size: 30px;
+        /* -webkit-text-stroke : 1px #6541FA; */
+    }
+}
+
+    @media (max-width : 290px)
+    {
+ .title{
+        top:9px;
+        border:block;
+        left: -20px;
+    }
+        .title h1{
+        font-size: 25px;
+    }
+    }
